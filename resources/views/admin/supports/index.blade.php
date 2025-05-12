@@ -12,17 +12,17 @@
     <tbody>
         @foreach ($supports as $support)
             <tr>
-                <td>{{ $support->subject }}</td>
-                <td>{{ $support->status }}</td>
-                <td>{{ $support->body }}</td>
+                <td>{{ $support['subject'] }}</td>
+                <td>{{ $support['status'] }}</td>
+                <td>{{ $support['body'] }}</td>
                 <td>
-                    <a href="{{ route('supports.show', $support->id) }}">visualizar</a>
+                    <a href="{{ route('supports.show', $support['id']) }}">visualizar</a>
                 </td>
                 <td>
-                    <a href="{{ route('supports.edit', $support->id) }}">editar</a>
+                    <a href="{{ route('supports.edit', $support['id']) }}">editar</a>
                 </td>
                 <td>
-                    <form action="{{ route('supports.destroy', $support->id) }}" method="POST">
+                    <form action="{{ route('supports.destroy', $support['id']) }}" method="POST">
                         @csrf()
                         @method('DELETE')
                         <button type="submit">deletar</button>

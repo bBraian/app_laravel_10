@@ -4,18 +4,18 @@ namespace App\Services;
 
 use App\DTO\CreateSupportDTO;
 use App\DTO\UpdateSupportDTO;
+use App\Models\Support;
+use App\Repositories\SupportRepository;
 use stdClass;
 
 class SupportService
 {
-    protected $repository;
+    public function __construct(
+        protected SupportRepository $repository
+    )
+    {}
 
-    public function __construct()
-    {
-
-    }
-
-    public function getAll(string $filter = null): array
+    public function getAll(?string $filter = null): array
     {
         return $this->repository->getAll($filter);
     }
